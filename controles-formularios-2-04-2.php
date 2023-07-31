@@ -1,11 +1,12 @@
 <?php
 /**
- * Controles en formularios (2) 4-2 - controles-formularios-2-04-2.php
+ * Controles en formularios (2) 4-2 - archivo2.php
  *
- * @author Viviana Alvarez
+ * @aSebastian Corrales Gutierrez
  *
  */
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,34 +23,29 @@
 <body>
   <h1>Datos personales 4 (Resultado)</h1>
 
-
-Su correo es:
-
 <?php
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+  $correo = isset($_GET["correo"]) ? $_GET["correo"] : "";
+  $correo2 = isset($_GET["correo2"]) ? $_GET["correo2"] : "";
+  $recibir = isset($_GET["recibir"]) ? $_GET["recibir"] : "";
 
-echo htmlspecialchars($_GET['correo']);
-
+  echo "<p><strong>Dirección de correo:</strong> $correo</p>";
+  echo "<p><strong>Confirmación de correo:</strong> $correo2</p>";
+  echo "<p><strong>Recibir correos nuestros:</strong> ";
+  if ($recibir == "1") {
+    echo "Sí</p>";
+  } elseif ($recibir == "0") {
+    echo "No</p>";
+  } else {
+    echo "No especificado</p>";
+  }
+}
 ?>
 
-<p></p>
-
-Su correo ha sido verificado
-
-<p></p>
-
-Recibirá correos de nosotros?:
-
-<?php
-
-echo htmlspecialchars($_GET['recibir']);
-
-?>
-
-
-  <p><a href="controles-formularios-2-04-1.php">Volver al formulario.</a></p>
+  <p><a href="archivo1.html">Volver al formulario.</a></p>
 
   <footer>
-    <p>Viviana Alvarez Solano</p>
+    <p>Escriba aquí su nombre</p>
   </footer>
 </body>
 </html>
